@@ -6,16 +6,17 @@ const createElement = (tagName, className) => {
 
 const createAutoplayToggleElement = () => {
     const element = createElement("label", "vjs-autoplay")
-    const insertElement = createElement("input", "toggle-checkbox")
-    insertElement.type = "checkbox"
-    insertElement.addEventListener("click", () => {
+    const inputElement = createElement("input", "toggle-checkbox")
+    inputElement.type = "checkbox"
+    inputElement.checked = true
+    inputElement.addEventListener("click", () => {
         toggleAutoplay()
     })
     const toggleTrackElement = createElement("div", "toggle-track")
     const toggleThumbElement = createElement("div", "toggle-thumb")
     
     toggleTrackElement.appendChild(toggleThumbElement)
-    element.appendChild(insertElement)
+    element.appendChild(inputElement)
     element.appendChild(toggleTrackElement)
 
     return element
