@@ -1,4 +1,4 @@
-let autoplay = false
+let autoplay = true
 
 const toggleAutoplay = () => {
     autoplay = !autoplay
