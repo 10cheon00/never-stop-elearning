@@ -1,4 +1,5 @@
 let autoplay = true
+let isVideoEnded = false
 
 const toggleAutoplay = () => {
     autoplay = !autoplay
@@ -16,9 +17,9 @@ const playVideo = (video) => {
     video.play()
 }
 
-const playVideoIfMutedAndPaused = () => {
+const playVideoIfPausedAndNotFinished = () => {
     const video = getVideo()
-    if (isAutoplayEnabled()) {
+    if (isAutoplayEnabled() && !isVideoEnded) {
         playVideo(video)
     }
 }
