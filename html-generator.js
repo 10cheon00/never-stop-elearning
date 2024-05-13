@@ -1,3 +1,5 @@
+let isToggleElementCreated = false
+
 const createElement = (tagName, className) => {
     const element = document.createElement(tagName)
     element.classList.add(className)
@@ -19,6 +21,7 @@ const createAutoplayToggleElement = () => {
     element.appendChild(inputElement)
     element.appendChild(toggleTrackElement)
 
+    isToggleElementCreated = true
     return element
 }
 
@@ -31,6 +34,9 @@ const getElapsedTimeElement = () => {
 }
 
 const insertAutoplayToggleElement = () => {
+    if (isToggleElementCreated) {
+        return
+    }
     const autoplayToggleElement = createAutoplayToggleElement()
     const elapsedTimeElement = getElapsedTimeElement()
     const controlBarElement = getControlBarElement()

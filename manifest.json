@@ -1,11 +1,14 @@
 {
   "manifest_version": 3,
   "name": "never stop elearning",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "This extension does play video which is automatically paused by other script.",
   "content_scripts": [
     {
-      "matches": ["https://ecampus.sejong.ac.kr/mod/*"],
+      "matches": [
+        "https://ecampus.sejong.ac.kr/*",
+        "https://lms.kmooc.kr/*"
+      ],
       "js": ["./index.js", "./autoplay.js", "./html-generator.js"],
       "css": ["style.css"]
     }

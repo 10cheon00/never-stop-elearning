@@ -1,40 +1,18 @@
-const getPosterElement = () => {
-  return document.querySelector(".vjs-poster")
-}
-
-const getPlayButtonElement = () => {
-  return document.querySelector(".vjs-icon-placeholder")
-}
-
 const addEventListenersToVideo = () => {
   const video = getVideo()
   video.addEventListener("ended", () => {
     isVideoEnded = true
+    insertAutoplayToggleElement()
   })
   video.addEventListener("play", () => {
     isVideoEnded = false
+    insertAutoplayToggleElement()
   })
 }
 
-const init = () => {
-  insertAutoplayToggleElement()
+window.addEventListener("load", () => {
   addEventListenersToVideo()
   setInterval(() => {
     playVideoIfPausedAndNotFinished()
   }, 1000)
-}
-
-window.addEventListener("load", () => {
-  const intervalId = setInterval(() => {
-    const posterElement = getPosterElement()
-    if (posterElement !== null) {
-      posterElement.addEventListener("click", init)
-      clearInterval(intervalId)
-    }
-    const playButtonElement = getPlayButtonElement()
-    if (playButtonElement !== null) {
-      playButtonElement.addEventListener("click", init)
-      clearInterval(intervalId)
-    }
-  }, 100)
 })
