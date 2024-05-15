@@ -10,7 +10,6 @@ const createAutoplayToggleElement = () => {
     const element = createElement("label", "vjs-autoplay")
     const inputElement = createElement("input", "toggle-checkbox")
     inputElement.type = "checkbox"
-    inputElement.checked = true
     inputElement.addEventListener("click", () => {
         toggleAutoplay()
     })

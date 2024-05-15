@@ -1,4 +1,4 @@
-let autoplay = true
+let autoplay = false
 let isVideoEnded = false
 
 const toggleAutoplay = () => {
